@@ -2,10 +2,11 @@ import React from "react"
 
 import QuestionItem from "./QuestionItem"
 
-function QuestionList({ questions }) {
+function QuestionList({ deleteQuestion, questions }) {
   const questionComponents = questions.map(question => (
     <QuestionItem
         key={question.id}
+        deleteQuestion={deleteQuestion}
         question={question}
     />
   ))

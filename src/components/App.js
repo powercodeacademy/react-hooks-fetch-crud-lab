@@ -14,10 +14,19 @@ const App = () => {
       .then(data => setQuestions(data))
   }, [])
 
+  const deleteQuestion = (id) => {
+    const configObject = { method: "DELETE" }
+
+    const updatedQuestionsList = questions.filter(question => question.id !== id)
+
+    fetch(`http://localhost:4000/questions/${id}`, configObject)
+      .then(setQuestions(updatedQuestionsList))
+  }
+
   return (
     <main>
       <AdminNavBar onChangePage={setPage} />
-      {page === "Form" ? <QuestionForm questions={questions} setQuestions={setQuestions} /> : <QuestionList questions={questions} />}
+      {page === "Form" ? <QuestionForm questions={questions} setQuestions={setQuestions} /> : <QuestionList deleteQuestion={deleteQuestion} questions={questions} />}
     </main>
   )
 }
