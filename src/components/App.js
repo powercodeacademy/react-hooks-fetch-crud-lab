@@ -26,7 +26,7 @@ const App = () => {
   return (
     <main>
       <AdminNavBar onChangePage={setPage} />
-      {page === "Form" ? <QuestionForm questions={questions} setQuestions={setQuestions} /> : <QuestionList deleteQuestion={deleteQuestion} questions={questions} />}
+      {page === "Form" ? <QuestionForm questions={questions} setQuestions={setQuestions} /> : <QuestionList deleteQuestion={deleteQuestion} questions={questions} setQuestions={setQuestions} />}
     </main>
   )
 }
