@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function QuestionForm(props) {
+  const history = useHistory();
+
   const [formData, setFormData] = useState({
     prompt: "",
     answer1: "",
@@ -34,7 +37,8 @@ function QuestionForm(props) {
         ],
         correctIndex: parseInt(formData.correctIndex),
       }),
-    });
+    })
+    .then(() => history.push("/question-list"))
   }
 
   return (

@@ -1,10 +1,27 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
-function AdminNavBar({ onChangePage }) {
+function AdminNavBar() {
   return (
     <nav>
-      <button onClick={() => onChangePage("Form")}>New Question</button>
-      <button onClick={() => onChangePage("List")}>View Questions</button>
+      <NavLink
+        to="/question-form"
+        exact
+        activeStyle={{
+          background: "darkblue",
+        }}
+      >
+        New Question
+      </NavLink>
+      <NavLink
+        to="/question-list"
+        exact
+        activeStyle={{
+          background: "darkblue",
+        }}
+      >
+        View Questions
+      </NavLink>
     </nav>
   );
 }
