@@ -5,7 +5,7 @@ function QuestionList () {
   const [questions, setQuestions] = useState([])
 
   useEffect(() => {
-    fetch("https://def-quiz-app-backend.herokuapp.com/questions")
+    fetch(`${process.env.REACT_APP_API_URL}/questions`)
       .then((r) => r.json())
       .then((questions) => {
         setQuestions(questions)
@@ -13,7 +13,7 @@ function QuestionList () {
   }, [])
 
   function handleDeleteClick (id) {
-    fetch(`https://def-quiz-app-backend.herokuapp.com/questions/${id}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/questions/${id}`, {
       method: "DELETE"
     })
       .then((r) => r.json())
@@ -24,7 +24,7 @@ function QuestionList () {
   }
 
   function handleAnswerChange (id, correctIndex) {
-    fetch(`https://def-quiz-app-backend.herokuapp.com/questions/${id}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/questions/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
