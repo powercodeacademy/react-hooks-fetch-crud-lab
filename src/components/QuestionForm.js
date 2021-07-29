@@ -1,30 +1,49 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
+import { useHistory } from "react-router-dom"
 
-function QuestionForm(props) {
+function QuestionForm (props) {
+  const history = useHistory()
+
   const [formData, setFormData] = useState({
     prompt: "",
     answer1: "",
     answer2: "",
     answer3: "",
     answer4: "",
-    correctIndex: 0,
-  });
+    correctIndex: 0
+  })
 
-  function handleChange(event) {
+  function handleChange (event) {
     setFormData({
       ...formData,
-      [event.target.name]: event.target.value,
-    });
+      [event.target.name]: event.target.value
+    })
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    console.log(formData);
+  function handleSubmit (event) {
+    event.preventDefault()
+    fetch("http://localhost:4000/questions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        prompt: formData.prompt,
+        answers: [
+          formData.answer1,
+          formData.answer2,
+          formData.answer3,
+          formData.answer4
+        ],
+        correctIndex: parseInt(formData.correctIndex)
+      })
+    })
+      .then(() => history.push("/question-list"))
   }
 
   return (
     <section>
-      <h1>New Question</h1>
+      <h1>Add New Question</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Prompt:
@@ -87,7 +106,7 @@ function QuestionForm(props) {
         <button type="submit">Add Question</button>
       </form>
     </section>
-  );
+  )
 }
 
-export default QuestionForm;
+export default QuestionForm
