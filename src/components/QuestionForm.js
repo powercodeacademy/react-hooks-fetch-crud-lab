@@ -22,7 +22,7 @@ function QuestionForm (props) {
 
   function handleSubmit (event) {
     event.preventDefault()
-    fetch("http://localhost:4000/questions", {
+    fetch("https://def-quiz-app-backend.herokuapp.com/questions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

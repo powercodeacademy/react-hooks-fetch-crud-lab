@@ -5,7 +5,7 @@ function QuestionList () {
   const [questions, setQuestions] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:4000/questions")
+    fetch("https://def-quiz-app-backend.herokuapp.com/questions")
       .then((r) => r.json())
       .then((questions) => {
         setQuestions(questions)
@@ -13,7 +13,7 @@ function QuestionList () {
   }, [])
 
   function handleDeleteClick (id) {
-    fetch(`http://localhost:4000/questions/${id}`, {
+    fetch(`https://def-quiz-app-backend.herokuapp.com/questions/${id}`, {
       method: "DELETE"
     })
       .then((r) => r.json())
@@ -24,7 +24,7 @@ function QuestionList () {
   }
 
   function handleAnswerChange (id, correctIndex) {
-    fetch(`http://localhost:4000/questions/${id}`, {
+    fetch(`https://def-quiz-app-backend.herokuapp.com/questions/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
