@@ -1,10 +1,10 @@
-import React from "react";
-import AdminNavBar from "./AdminNavBar";
-import QuestionForm from "./QuestionForm";
-import QuestionList from "./QuestionList";
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
+import React from "react"
+import AdminNavBar from "./AdminNavBar"
+import QuestionForm from "./QuestionForm"
+import QuestionList from "./QuestionList"
+import { BrowserRouter, Route, Redirect } from "react-router-dom"
 
-function App() {
+function App () {
   return (
     <main>
       <BrowserRouter>
@@ -20,7 +20,7 @@ function App() {
           </Route>
         </BrowserRouter>
     </main>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,14 +1,14 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from "react"
+import { NavLink } from "react-router-dom"
 
-function AdminNavBar() {
+function AdminNavBar () {
   return (
     <nav>
       <NavLink
         to="/question-form"
         exact
         activeStyle={{
-          background: "darkblue",
+          background: "darkblue"
         }}
       >
         New Question
@@ -17,13 +17,13 @@ function AdminNavBar() {
         to="/question-list"
         exact
         activeStyle={{
-          background: "darkblue",
+          background: "darkblue"
         }}
       >
         View Questions
       </NavLink>
     </nav>
-  );
+  )
 }
 
-export default AdminNavBar;
+export default AdminNavBar
